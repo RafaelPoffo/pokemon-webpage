@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Importe "Routes" em vez de "Switch"
+import axios from 'axios';
+import Home from './pages/Home';
+import Kanto from './pages/Kanto';
+import Johto from './pages/Johto';
 
-function App() {
+const App = () => {
+  const [pokemonData, setPokemonData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://pokeapi.co/api/v2/');
+        setPokemonData(response.data);
+      } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes> {/* Substitua o "Switch" por "Routes" */}
+        <Route path="/" element={<Home />} /> {/* Use "element" em vez de "component" */}
+        <Route path="/kanto" element={<Kanto />} /> {/* Use "element" em vez de "component" */}
+        <Route path="/johto" element={<Johto />} /> {/* Use "element" em vez de "component" */}
+      </Routes> {/* Substitua o "Switch" por "Routes" */}
+    </Router>
   );
 }
 
