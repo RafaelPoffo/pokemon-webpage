@@ -22,7 +22,11 @@ You may also see any lint errors in the console.
 
 # Dependencies
 React
+
 TailwindCSS
+
 JavaScript
+
 Axios
+
 React-Router-Dom
