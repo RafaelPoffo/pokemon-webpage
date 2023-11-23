@@ -5,8 +5,11 @@ Explore the Pokémon Shop Example, a dynamic e-commerce web application created 
 ## Features
 
 • Pokémon Data Retrieval: Utilizes the PokeAPI to fetch and display Pokémon details dynamically.
+
 • Dynamic Routing: Implements React-Router-Dom for smooth navigation between different sections of the e-commerce site.
+
 • State Management: Demonstrates the use of React hooks, including useState and useEffect, to manage the application state.
+
 • Responsive Design: Built with React and TailwindCSS, ensuring an optimal experience across various devices.
 
 ### `npm start`
